@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Button, View, Text } from 'react-native';
-import { Content, Container, Header, Left, Icon, Right, Card, CardItem } from 'native-base'
+import { TextInput, StyleSheet, Button, View, Text } from 'react-native';
+import { Content, Container, Header, Left, Icon, Item, Label, Form, Input } from 'native-base'
 import Hed from './Hed';
 import Greet from './Greed';
+import Axios from 'axios';
+
+
 class Home extends Component {
   static navigationOptions = {
     drawerLabel: 'Home',
@@ -13,17 +16,69 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      dataStaff:[],
+      dat: {
+        nama: '',
+        alamat: ''
+      }
     };
+  }
+  handleC (){
+    var tmp = this.state.dataStaff.slice();
+    tmp.push(this.state.dat);
+    this.setState({
+      dataStaff:tmp
+    })
+  //   for (let userObject of this.state.dataStaff) {
+  //     console.warn(userObject.nama);
+  // }
+    
+    // const fd = new FormData();   
+    // fd.append('nama', this.state.dat.nama);
+    // fd.append('alamat', this.state.dat.alamat); 
+    // // console.warn(fd);
+    // Axios.post("http://192.168.1.5/apireact/index.php/tps/tesAdd",fd).then((response)=>{
+    //   console.warn(response)
+    // })   
   }
 
   render() {
     return (
-      <Container>      
-        <Hed navigation = {this.props.navigation}/>
+      <Container>
+        <Hed navigation={this.props.navigation} />
         <Content style={{ marginTop: 5, backgroundColor: 'grey' }}>
-          
+
+        <Text>{this.state.dataStaff.length}</Text>       
+        
+          { 
+            this.state.dataStaff.map(m=>{
+              return <Text>{m.nama}</Text>
+            })
+          }
+          <Input            
+            style={{ marginTop: 5, backgroundColor: 'white' }}
+            onChangeText={(text)=>this.setState({
+              dat:{
+                  ...this.state.dat,
+                   nama:text
+                  }
+            })}            
+          />
+          <TextInput          
+            style={{ marginTop: 5, backgroundColor: 'white' }}
+            onChangeText={(text)=>this.setState({
+              dat:{
+                  ...this.state.dat,
+                   alamat:text
+                  }
+            })}            
+          />
+           <Button
+              title='add'
+              onPress={this.handleC.bind(this)}
+            />
+
           <View style={styles.grid}>
-            <View style={styles.col}><Text>hai</Text></View>
             <View style={styles.col}><Text>adsddda</Text></View>
             <View style={styles.col}><Text>adsda</Text></View>
             <View style={styles.col}><Text>adsda</Text></View>
@@ -33,7 +88,7 @@ class Home extends Component {
             alignItems: 'center', paddingHorizontal: 5, justifyContent: 'space-between',
             margin: 10
           }}>
-            <Text> Home basee </Text>
+            <Text> Home basede </Text>
             <Button
               title='gasdd drawera'
               onPress={() => this.props.navigation.openDrawer()}

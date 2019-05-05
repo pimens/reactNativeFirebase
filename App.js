@@ -5,6 +5,7 @@ import Home from './comp/Home'
 import Greed from './comp/Greed'
 import ColGrid from './comp/ColGrid'
 import { Content, Container, Header, Left, Icon, Right, Card, CardItem, Row, Col } from 'native-base'
+import Todo from './comp/Todo';
 
 
 const CustomContent = (props) => {
@@ -36,7 +37,9 @@ const styles = StyleSheet.create({
 const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
   Greed : {screen: Greed},
-  ColGrid : {screen:ColGrid}
+  ColGrid : {screen:ColGrid},
+  Todo : {screen:Todo}
+
 }, {
     initialRouteName:'Home',
     drawerPosition: 'left',
