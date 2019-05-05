@@ -6,6 +6,7 @@ import Greed from './comp/Greed'
 import ColGrid from './comp/ColGrid'
 import { Content, Container, Header, Left, Icon, Right, Card, CardItem, Row, Col } from 'native-base'
 import Todo from './comp/Todo';
+import ListItemFirebase from './comp/ListItemFirebase';
 
 
 const CustomContent = (props) => {
@@ -38,7 +39,9 @@ const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
   Greed : {screen: Greed},
   ColGrid : {screen:ColGrid},
-  Todo : {screen:Todo}
+  Todo : {screen:Todo},
+  List : {screen:ListItemFirebase}
+
 
 }, {
     initialRouteName:'Home',

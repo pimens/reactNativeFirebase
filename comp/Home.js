@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { TextInput, StyleSheet, Button, View, Text } from 'react-native';
 import { Content, Container, Header, Left, Icon, Item, Label, Form, Input } from 'native-base'
 import Hed from './Hed';
-import Greet from './Greed';
-import Axios from 'axios';
+import {db} from './db/ConfigDb'
+
 
 
 class Home extends Component {
@@ -16,23 +16,46 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataStaff:[],
+      dataStaff: [],
       dat: {
         nama: '',
         alamat: ''
       }
     };
   }
-  handleC (){
+  gas() {
+    db.ref('/items').push({
+      name: this.state.dat.nama,
+      addres: this.state.dat.alamat
+    }).then((data)=>{
+      console.warn('oiiiii')
+    })
+      // const email ='kidis';
+      // const fname = 'pimen';
+      // const lname = 'skom';
+      // firebase.database().ref('Users/').set({
+      //     email,
+      //     fname,
+      //     lname
+      // }).then((data)=>{
+      //     //success callback
+      //     console.warn('data ' , data)
+      // }).catch((error)=>{
+      //     //error callback
+      //     console.warn('error ' , error)
+      // })
+  
+  }
+  handleC() {
     var tmp = this.state.dataStaff.slice();
     tmp.push(this.state.dat);
     this.setState({
-      dataStaff:tmp
+      dataStaff: tmp
     })
-  //   for (let userObject of this.state.dataStaff) {
-  //     console.warn(userObject.nama);
-  // }
-    
+    //   for (let userObject of this.state.dataStaff) {
+    //     console.warn(userObject.nama);
+    // }
+
     // const fd = new FormData();   
     // fd.append('nama', this.state.dat.nama);
     // fd.append('alamat', this.state.dat.alamat); 
@@ -47,37 +70,39 @@ class Home extends Component {
       <Container>
         <Hed navigation={this.props.navigation} />
         <Content style={{ marginTop: 5, backgroundColor: 'grey' }}>
+          <Text>{this.state.dataStaff.length}</Text>
 
-        <Text>{this.state.dataStaff.length}</Text>       
-        
-          { 
-            this.state.dataStaff.map(m=>{
+          {
+            this.state.dataStaff.map(m => {
               return <Text>{m.nama}</Text>
             })
           }
-          <Input            
+          <Input
             style={{ marginTop: 5, backgroundColor: 'white' }}
-            onChangeText={(text)=>this.setState({
-              dat:{
-                  ...this.state.dat,
-                   nama:text
-                  }
-            })}            
+            onChangeText={(text) => this.setState({
+              dat: {
+                ...this.state.dat,
+                nama: text
+              }
+            })}
           />
-          <TextInput          
+          <TextInput
             style={{ marginTop: 5, backgroundColor: 'white' }}
-            onChangeText={(text)=>this.setState({
-              dat:{
-                  ...this.state.dat,
-                   alamat:text
-                  }
-            })}            
+            onChangeText={(text) => this.setState({
+              dat: {
+                ...this.state.dat,
+                alamat: text
+              }
+            })}
           />
-           <Button
-              title='add'
-              onPress={this.handleC.bind(this)}
-            />
-
+          <Button
+            title='add'
+            onPress={this.handleC.bind(this)}
+          />
+        <Button
+            title='firebase'
+            onPress={this.gas.bind(this)}
+          />
           <View style={styles.grid}>
             <View style={styles.col}><Text>adsddda</Text></View>
             <View style={styles.col}><Text>adsda</Text></View>
