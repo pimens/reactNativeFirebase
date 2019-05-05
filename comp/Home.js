@@ -23,7 +23,7 @@ class Home extends Component {
         <Content style={{ marginTop: 5, backgroundColor: 'grey' }}>
           
           <View style={styles.grid}>
-            <View style={styles.col}><Text>adsdsaaaaadsda</Text></View>
+            <View style={styles.col}><Text>hai</Text></View>
             <View style={styles.col}><Text>adsddda</Text></View>
             <View style={styles.col}><Text>adsda</Text></View>
             <View style={styles.col}><Text>adsda</Text></View>

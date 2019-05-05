@@ -5,7 +5,7 @@ import { Header,Icon,Right,Left } from 'native-base';
 class Hed extends Component {
     render() {
         return (
-            <Header style={{ backgroundColor: 'Black', height: 50, borderBottomColor: 'red' }}>
+            <Header style={{ backgroundColor: 'Black', height: 50, borderBottomWidth:2,borderBottomColor: 'black' }}>
                 <Left style={{ flexDirection: 'row' }}>
                     <Icon onPress={() => this.props.navigation.openDrawer()} name="md-menu" style={{ backgroundColor: 'blue', marginRight: 15 }} />
                     <Icon name="md-menu" style={{ marginRight: 15 }} />

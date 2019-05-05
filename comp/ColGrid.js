@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Image, StatusBar, ToastAndroid, Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Hed from './Hed';
+import { Container, Content } from 'native-base';
 
 
 const Toast = (props) => {
@@ -56,11 +57,13 @@ export default class Grid extends Component {
 
     render() {
         return (
-            <ScrollView>
-                <Hed navigation = {this.props.navigation}/>
+            <Container>
+                <Hed navigation = {this.props.navigation}/>            
+            <Content>
+                
                 <View style={styles.container}>
                     <Button
-                        title="pindah"
+                        title="pindxah"
                     />
                     <View style={styles.grid}>
                         <View style={styles.col}><Text>adsdsaaaaadsda</Text></View>
@@ -110,7 +113,8 @@ export default class Grid extends Component {
                         style={{ justifyContent: 'space-between', color: 'red' }}
                     />                   
                 </View>
-            </ScrollView>
+            </Content>
+            </Container>
         );
     }
 }
