@@ -12,7 +12,7 @@ import ListItemFirebase from './comp/ListItemFirebase';
 const CustomContent = (props) => {
   return (
     <Container>
-      <Header style={{ backgroundColor: 'brown', height: 90 }}>
+      <Header style={{ backgroundColor: '#2ecc71', height: 90 }}>
       </Header>
       <Content>
        <DrawerItems {...props}/>

@@ -3,9 +3,6 @@ import { TextInput, StyleSheet, Button, View, Text } from 'react-native';
 import { Content, Container, Header, Left, Icon, Item, Label, Form, Input } from 'native-base'
 import Hed from './Hed';
 import {db} from './db/ConfigDb'
-
-
-
 class Home extends Component {
   static navigationOptions = {
     drawerLabel: 'Home',
@@ -113,7 +110,7 @@ class Home extends Component {
             alignItems: 'center', paddingHorizontal: 5, justifyContent: 'space-between',
             margin: 10
           }}>
-            <Text> Home basede </Text>
+            <Text> Home basexxxsde </Text>
             <Button
               title='gasdd drawera'
               onPress={() => this.props.navigation.openDrawer()}
