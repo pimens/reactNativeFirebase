@@ -3,9 +3,6 @@ import { Button, View, Text } from 'react-native';
 import { db } from './db/ConfigDb'
 
 
-
-
-
 class ListItemFirebase extends Component {
     constructor(props) {
         super(props);
