@@ -1,4 +1,4 @@
-# reposReactNativeComp
+# ReactNativeFirebase
 
 aplikasi percobaan dengan native
 @ ada drawer react  nav 3
